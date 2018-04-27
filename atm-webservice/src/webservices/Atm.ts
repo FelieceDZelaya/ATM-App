@@ -1,3 +1,4 @@
+import * as cors from "cors";
 import * as express from 'express';
 import { accounts } from '../database/Accounts';
 import { AccountList,AccountModel,TransactionList,TransactionModel } from '../models/atm.model';
@@ -9,6 +10,7 @@ class Atm {
 
   constructor () {
     this.express = express();
+    this.express.use(cors());
     this.transactionList = new TransactionList();
     this.mountRoutes();
   }

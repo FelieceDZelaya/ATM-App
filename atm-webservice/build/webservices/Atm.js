@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const cors = require("cors");
 const express = require("express");
 const Accounts_1 = require("../database/Accounts");
 const atm_model_1 = require("../models/atm.model");
 class Atm {
     constructor() {
         this.express = express();
+        this.express.use(cors());
         this.transactionList = new atm_model_1.TransactionList();
         this.mountRoutes();
     }
